@@ -52,7 +52,7 @@
 
         async function fetchEmployees(token) {
             try {
-                const response = await fetch("https://YOUR_NODEJS_API_URL/employees", {
+                const response = await fetch("https://swa-api-sql-api.azurewebsites.net/employees", {
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
@@ -66,7 +66,7 @@
 
         async function searchEmployee(token, employeeId) {
             try {
-                const response = await fetch(`https://YOUR_NODEJS_API_URL/employees/${employeeId}`, {
+                const response = await fetch(`https://swa-api-sql-api.azurewebsites.net/employees/${employeeId}`, {
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
