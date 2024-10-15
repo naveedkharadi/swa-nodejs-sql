@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <script src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee Management</h1>
+    <button id="listEmployeesBtn">List All Employees</button>
+    <br><br>
+    <input type="text" id="employeeIdInput" placeholder="Enter Employee ID">
+    <button id="searchEmployeeBtn">Search Employee</button>
+    <br><br>
+    <div id="employeeTableContainer"></div>
+
+    <script>
+        const msalConfig = {
+            auth: {
+                clientId: "YOUR_CLIENT_ID",
+                authority: "https://YOUR_TENANT_NAME.b2clogin.com/YOUR_TENANT_NAME.onmicrosoft.com/B2C_1_SIGNUP_SIGNIN",
+                redirectUri: "http://localhost:3000"
+            }
+        };
+
+        const msalInstance = new msal.PublicClientApplication(msalConfig);
+
+        async function authenticateUser() {
+            try {
+                const loginResponse = await msalInstance.loginPopup({
+                    scopes: ["openid", "profile", "YOUR_API_SCOPE"]
+                });
+                return loginResponse.accessToken;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function fetchEmployees(token) {
+            try {
+                const response = await fetch("https://YOUR_NODEJS_API_URL/employees", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+                const employees = await response.json();
+                displayEmployees(employees);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function searchEmployee(token, employeeId) {
+            try {
+                const response = await fetch(`https://YOUR_NODEJS_API_URL/employees/${employeeId}`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+                const employee = await response.json();
+                displayEmployees([employee]);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function displayEmployees(employees) {
+            const container = document.getElementById('employeeTableContainer');
+            if (employees.length === 0) {
+                container.innerHTML = "No data found";
+                return;
+            }
+
+            let table = `<table>
+                            <tr>
+                                <th>EmployeeId</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>DateOfBirth</th>
+                                <th>DateOfJoining</th>
+                                <th>DepartmentName</th>
+                            </tr>`;
+            employees.forEach(employee => {
+                table += `<tr>
+                            <td>${employee.EmployeeId}</td>
+                            <td>${employee.FirstName}</td>
+                            <td>${employee.LastName}</td>
+                            <td>${employee.DateOfBirth}</td>
+                            <td>${employee.DateOfJoining}</td>
+                            <td>${employee.DepartmentName}</td>
+                          </tr>`;
+            });
+            table += `</table>`;
+            container.innerHTML = table;
+        }
+
+        document.getElementById('listEmployeesBtn').addEventListener('click', async () => {
+            const token = await authenticateUser();
+            if (token) {
+                fetchEmployees(token);
+            }
+        });
+
+        document.getElementById('searchEmployeeBtn').addEventListener('click', async () => {
+            const employeeId = document.getElementById('employeeIdInput').value;
+            if (employeeId) {
+                const token = await authenticateUser();
+                if (token) {
+                    searchEmployee(token, employeeId);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
