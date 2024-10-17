@@ -44,7 +44,7 @@ jobs:
         run: ls -al  
     
       - name: List files in the build directory (for debugging)  
-        run: ls -al build
+        run: ls -al src/3-swa/build
 
       - name: Build And Deploy
         id: builddeploy
