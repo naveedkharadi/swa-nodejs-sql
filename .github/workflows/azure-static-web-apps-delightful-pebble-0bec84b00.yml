@@ -21,6 +21,31 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Setup Node.js  
+        uses: actions/setup-node@v3  
+        with:  
+          node-version: '20.x'  
+
+      - name: Install npm packages  
+        run: npm install  
+          
+      - name: Build app  
+        run: npm run build  
+        env:  
+          REACT_APP_API_ROOT_URL: ${{ vars.REACT_APP_API_ROOT_URL }}
+          REACT_APP_AUTHORITY: ${{ vars.REACT_APP_AUTHORITY }}
+          REACT_APP_CLIENT_ID: ${{ vars.REACT_APP_CLIENT_ID }}
+          REACT_APP_KNOWN_AUTHORITIES: ${{ vars.REACT_APP_KNOWN_AUTHORITIES }}
+          REACT_APP_POST_LOGOUT_REDIRECT_URI: ${{ vars.REACT_APP_POST_LOGOUT_REDIRECT_URI }}
+          REACT_APP_REDIRECT_URI: ${{ vars.REACT_APP_REDIRECT_URI }}
+          REACT_APP_SCOPES: ${{ vars.REACT_APP_SCOPES }}  
+
+      - name: List files in the project root (for debugging)  
+        run: ls -al  
+    
+      - name: List files in the build directory (for debugging)  
+        run: ls -al build
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -28,9 +53,10 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_PEBBLE_0BEC84B00 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
+          skip_app_build: true
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./src/3-swa" # App source code path
+          app_location: "/build" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
