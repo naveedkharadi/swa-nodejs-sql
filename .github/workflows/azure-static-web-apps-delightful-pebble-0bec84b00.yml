@@ -28,7 +28,7 @@ jobs:
 
       - name: Install npm packages  
         run: |
-          cd 3-swa
+          cd src/3-swa
           npm install  
           npm run build        
         env:  
