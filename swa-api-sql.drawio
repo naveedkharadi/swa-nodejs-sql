@@ -1,0 +1,62 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="kb7STi4cvAU2wjAI7WYI">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-6" value="" style="fontStyle=0;verticalAlign=bottom;align=left;spacingTop=-2;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#919191;strokeWidth=2;dashed=1;container=1;collapsible=0;expand=0;recursiveResize=0;labelPosition=right;verticalLabelPosition=top;" vertex="1" parent="1">
+          <mxGeometry x="349.75" y="379" width="510" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="F-mgyogaWO4kA0ZNDWu8-2" target="F-mgyogaWO4kA0ZNDWu8-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-2" value="API&lt;div&gt;(ExpressJS)&lt;/div&gt;" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/App_Services.svg;" vertex="1" parent="1">
+          <mxGeometry x="573.75" y="440" width="64" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-3" value="SQL&amp;nbsp;&lt;div&gt;Database&lt;/div&gt;" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/SQL_Server.svg;" vertex="1" parent="1">
+          <mxGeometry x="760.75" y="438" width="68" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;startArrow=classic;startFill=1;" edge="1" parent="1" source="F-mgyogaWO4kA0ZNDWu8-4" target="F-mgyogaWO4kA0ZNDWu8-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-4" value="Static Web App&lt;div&gt;(React)&lt;/div&gt;" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/preview/Static_Apps.svg;" vertex="1" parent="1">
+          <mxGeometry x="390.75" y="445" width="68" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-12" value="Azure&amp;nbsp;&lt;div&gt;AD B2C&lt;/div&gt;" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/identity/Azure_AD_B2C.svg;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="219" y="315" width="69" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="F-mgyogaWO4kA0ZNDWu8-13" target="F-mgyogaWO4kA0ZNDWu8-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="F-mgyogaWO4kA0ZNDWu8-13" target="F-mgyogaWO4kA0ZNDWu8-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-13" value="User" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.user;" vertex="1" parent="1">
+          <mxGeometry x="229.75" y="447" width="47.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="F-mgyogaWO4kA0ZNDWu8-16" target="F-mgyogaWO4kA0ZNDWu8-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-23" value="API Deployment&lt;div&gt;Workflow&lt;/div&gt;" style="edgeLabel;html=1;align=left;verticalAlign=bottom;resizable=0;points=[];labelPosition=right;verticalLabelPosition=top;" vertex="1" connectable="0" parent="F-mgyogaWO4kA0ZNDWu8-20">
+          <mxGeometry x="-0.089" y="-1" relative="1" as="geometry">
+            <mxPoint x="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="F-mgyogaWO4kA0ZNDWu8-16" target="F-mgyogaWO4kA0ZNDWu8-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-22" value="UI Deployment&lt;div&gt;Workflow&lt;/div&gt;" style="edgeLabel;html=1;align=right;verticalAlign=bottom;resizable=0;points=[];labelPosition=left;verticalLabelPosition=top;" vertex="1" connectable="0" parent="F-mgyogaWO4kA0ZNDWu8-21">
+          <mxGeometry x="0.0154" y="1" relative="1" as="geometry">
+            <mxPoint x="-6" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-16" value="GitHub&lt;div&gt;Repo&lt;/div&gt;" style="verticalLabelPosition=top;html=1;verticalAlign=bottom;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.git_repository;labelPosition=center;" vertex="1" parent="1">
+          <mxGeometry x="489.75" y="290" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F-mgyogaWO4kA0ZNDWu8-5" value="Resource Group" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="839.75" y="360" width="41.44" height="39" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

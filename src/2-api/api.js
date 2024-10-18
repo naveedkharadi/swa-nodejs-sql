@@ -1,7 +1,6 @@
 require('dotenv').config(); 
 const express = require('express');
 const sql = require('mssql');
-const jwt1 = require('jsonwebtoken');
 const jwksRsa = require('jwks-rsa');
 const { expressjwt: jwt } = require('express-jwt');
 
@@ -40,17 +39,6 @@ const authenticateToken = jwt({
     algorithms: ['RS256']
 });
 
-
-const authenticateToken1 = jwt({
-    secret: jwksRsa.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksUri: `https://techaradiorgb2c.b2clogin.com/techaradiorgb2c.onmicrosoft.com/b2c_1_sign_up_sign_in/discovery/v2.0/keys`
-    }),
-    audience: '5f15854f-ace0-4fb7-a3e3-7e02dd4eb6b8',
-    issuer: `https://techaradiorgb2c.b2clogin.com/4d4f385e-a8a2-4c29-a2a1-9995a7a7a323/v2.0/`,
-    algorithms: ['RS256']
-});
 
 app.get('/employees', authenticateToken, async (req, res) => {
     try {
